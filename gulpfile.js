@@ -1,47 +1,33 @@
-var gulp = require("gulp");
-var msbuild = require("gulp-msbuild");
-var debug = require("gulp-debug");
-var foreach = require("gulp-foreach");
-var runSequence = require("run-sequence");
-
-var gulpConfig = require("./gulp-config.js")();
-module.exports.config = gulpConfig;
-
-gulp.task("default", function (callback) {
-    return runSequence(
-        "Build-Solution",
-        "Publish-Foundation-Projects",
-        "Publish-Feature-Projects",
-        "Publish-Project-Projects",
-        "Publish-Webroot-Project", callback
-    );
-});
+import gulp from 'gulp';
+import msbuild from 'gulp-msbuild';
+import debug from 'gulp-debug';
+import foreach from 'gulp-foreach';
+import gulpConfig from './gulp-config.js';
 
 var publishProjects = function (location, dest) {
-    dest = dest || gulpConfig.webRoot;
-    var targets = ["Build"];
+    var targets = ['Build'];
 
-    console.log("Publish to " + dest + " folder");
-    return gulp.src([location + "/**/*.csproj"])
+    console.log('Publish to ' + dest + ' folder');
+
+    return gulp.src([location + '\\**\\*.csproj'])
         .pipe(foreach(function (stream, file) {
             return stream
-                .pipe(debug({ title: "Building project:" }))
+                .pipe(debug({ title: 'Building project:' }))
                 .pipe(msbuild({
                     targets: targets,
                     configuration: gulpConfig.buildConfiguration,
                     logCommand: false,
-                    verbosity: "minimal",
+                    verbosity: 'minimal',
                     stdout: true,
                     errorOnFail: true,
-                    maxcpucount: 0,
-                    toolsVersion: "auto",
+                    toolsVersion: 'auto',
                     properties: {
-                        DeployOnBuild: "true",
-                        DeployDefaultTarget: "WebPublish",
-                        WebPublishMethod: "FileSystem",
-                        DeleteExistingFiles: "false",
+                        DeployOnBuild: 'true',
+                        DeployDefaultTarget: 'WebPublish',
+                        WebPublishMethod: 'FileSystem',
+                        DeleteExistingFiles: 'false',
                         publishUrl: dest,
-                        _FindDependencies: "false"
+                        _FindDependencies: 'false'
                     }
                 })
             );
@@ -49,35 +35,38 @@ var publishProjects = function (location, dest) {
     );
 };
 
-gulp.task("Build-Solution", function () {
-    var targets = ["Build"];
+gulp.task('Build-Solution', function () {
+    var targets = ['Build'];
 
-    return gulp.src("./" + gulpConfig.solutionName + ".sln")
-        .pipe(msbuild({
+    return gulp.src('.\\' + gulpConfig.solutionName + '.sln').pipe(
+        msbuild({
             targets: targets,
-            configuration: gulpConfig.buildConfiguration,
+            configuration: gulpConfig.buildconfiguration,
             logCommand: false,
-            verbosity: "minimal",
+            verbosity: 'minimal',
             stdout: true,
             errorOnFail: true,
-            maxcpucount: 0,
-            toolsVersion: "auto"
+            toolsVersion: 'auto'
         })
     );
 });
 
-gulp.task("Publish-Foundation-Projects", function () {
-    return publishProjects("./src/Foundation");
+gulp.task('Publish-Foundation-Projects', function () {
+    return publishProjects('.\\src\\Foundation', gulpConfig.webRoot);
 });
 
-gulp.task("Publish-Feature-Projects", function () {
-    return publishProjects("./src/Feature");
+gulp.task('Publish-Feature-Projects', function () {
+    return publishProjects('.\\src\\Feature', gulpConfig.webRoot);
 });
 
-gulp.task("Publish-Project-Projects", function () {
-    return publishProjects("./src/Project");
+gulp.task('Publish-Project-Projects', function () {
+    return publishProjects('.\\src\\Project', gulpConfig.webRoot);
 });
 
-gulp.task("Publish-Webroot-Project", function () {
-    return publishProjects("./src/Webroot");
-});
+gulp.task('default', gulp.series(
+        'Build-Solution',
+        'Publish-Foundation-Projects',
+        'Publish-Feature-Projects',
+        'Publish-Project-Projects'
+    )
+);
