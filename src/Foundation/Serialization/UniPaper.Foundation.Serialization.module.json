@@ -1,0 +1,13 @@
+{
+  "namespace": "UniPaper.Foundation.Serialization",
+  "items": {
+    "includes": [
+      {
+        "name": "Templates-UniPaper",
+        "path": "/sitecore/templates/Foundation/UniPaper",
+        "scope": "ItemAndDescendants",
+        "allowedPushOperations": "createUpdateAndDelete"
+      }
+    ]
+  }
+}

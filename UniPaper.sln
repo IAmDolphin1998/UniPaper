@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configurat
 		gulp-config.js = gulp-config.js
 		gulpfile.js = gulpfile.js
 		README.md = README.md
+		sitecore.json = sitecore.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{D639EA3B-D7A5-4E69-B0B4-5F6C3E2F8C92}"
@@ -19,8 +20,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{133F845C-C2C3-4387-BD91-42E7F43E196C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebSite", "WebSite", "{5E069D34-149E-4133-9D31-D46D054FF7CD}"
+	ProjectSection(SolutionItems) = preProject
+		src\Project\WebSite\UniPaper.Project.WebSite.module.json = src\Project\WebSite\UniPaper.Project.WebSite.module.json
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniPaper.Project.WebSite", "src\Project\WebSite\code\UniPaper.Project.WebSite.csproj", "{4A37E76D-760E-4A68-B2D5-42AC236E91A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Serialization", "Serialization", "{6D3A1493-5F63-4259-9FD7-C7D30A7613BA}"
+	ProjectSection(SolutionItems) = preProject
+		src\Foundation\Serialization\UniPaper.Foundation.Serialization.module.json = src\Foundation\Serialization\UniPaper.Foundation.Serialization.module.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +48,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5E069D34-149E-4133-9D31-D46D054FF7CD} = {D639EA3B-D7A5-4E69-B0B4-5F6C3E2F8C92}
 		{4A37E76D-760E-4A68-B2D5-42AC236E91A3} = {5E069D34-149E-4133-9D31-D46D054FF7CD}
+		{6D3A1493-5F63-4259-9FD7-C7D30A7613BA} = {133F845C-C2C3-4387-BD91-42E7F43E196C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {177D39C4-128E-4649-8EE5-7DF5FD5BDA7C}

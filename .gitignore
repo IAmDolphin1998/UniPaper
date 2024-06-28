@@ -362,5 +362,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+# Add by developer
+*.sitecore
 /package.json
 /package-lock.json
