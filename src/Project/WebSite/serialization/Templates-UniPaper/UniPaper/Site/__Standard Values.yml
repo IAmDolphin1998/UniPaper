@@ -1,0 +1,38 @@
+﻿---
+ID: "f9e3b0bc-b281-4fac-a8a4-507e713f2f9a"
+Parent: "354ccbb2-f332-4c71-a52a-c7e55cc23565"
+Template: "354ccbb2-f332-4c71-a52a-c7e55cc23565"
+Path: /sitecore/templates/Project/UniPaper/Site/__Standard Values
+SharedFields:
+- ID: "1172f251-dad4-4efb-a329-0c63500e4f1e"
+  Hint: __Masters
+  Value: |
+    {E8E8C94F-4248-43C3-A79F-99FBB49D78E6}
+    {21253072-2AEC-4633-9D14-7A34722AD371}
+    {5ECD34F4-B36F-4533-9643-DF41CD8B5036}
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20240622T093241Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\Admin
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\Admin
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "76defcff-c360-42dd-9a3e-8227816b4c45"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\Admin
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20240622T093244Z
